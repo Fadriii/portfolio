@@ -13,9 +13,10 @@
 	--color-on-accent: #f5f2ec;
 	--color-accent-tint: #ecdcd8;
 
-	--font-serif: "Newsreader", Georgia, "Times New Roman", serif;
-	--font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-	--font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+	/* Font variables are defined by Astro's fonts config (astro.config.mjs) */
+	--font-serif: var(--font-newsreader);
+	--font-sans: var(--font-plex-sans);
+	--font-mono: var(--font-plex-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -34,6 +35,9 @@
 }
 
 @layer base {
+	:root {
+		color-scheme: light dark;
+	}
 	body {
 		background: var(--color-paper);
 		color: var(--color-ink);
