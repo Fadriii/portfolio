@@ -11,7 +11,7 @@ const { id, label } = Astro.props;
 	<div class="flex-[0_0_200px]">
 		<h2 class="pt-[5px] font-mono text-xs leading-4 font-medium tracking-[0.06em] text-ink-muted uppercase">{label}</h2>
 	</div>
-	<div class="min-w-0 flex-[999_1_400px]">
+	<div class="max-w-[62ch] min-w-0 flex-[999_1_400px]">
 		<slot />
 	</div>
 </section>

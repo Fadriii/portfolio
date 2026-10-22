@@ -7,6 +7,7 @@ interface Props {
 
 const { title } = Astro.props;
 
+// Must match the <Section id> values in pages/index.astro.
 const nav = [
 	['ueber-mich', 'Über mich'],
 	['werdegang', 'Werdegang'],
@@ -30,9 +31,9 @@ const nav = [
 		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400&family=Newsreader:opsz,wght@6..72,400&display=swap" rel="stylesheet" />
 	</head>
 	<body>
-		<div id="seitenanfang" class="mx-auto max-w-[1136px] px-[clamp(20px,5vw,48px)]">
+		<div class="mx-auto max-w-[1136px] px-[clamp(20px,5vw,48px)]">
 			<header class="flex flex-wrap items-center justify-between gap-x-8 gap-y-2 border-b border-rule pt-6 pb-4">
-				<a class="plain font-serif text-[22px] leading-7" href="/#seitenanfang">Fadri Ziegler</a>
+				<a class="plain font-serif text-[22px] leading-7" href="/#top">Fadri Ziegler</a>
 				<nav aria-label="Hauptnavigation" class="flex flex-wrap gap-x-6 text-sm leading-[22px]">
 					{nav.map(([id, label]) => <a class="plain inline-block py-[11px]" href={`/#${id}`}>{label}</a>)}
 				</nav>
@@ -42,7 +43,7 @@ const nav = [
 			</main>
 			<footer class="flex flex-wrap justify-between gap-x-8 gap-y-2 border-t border-rule pt-6 pb-12 text-sm leading-[22px] text-ink-muted">
 				<span>Fadri Ziegler · Romanshorn · 2026</span>
-				<a href="#seitenanfang">Nach oben</a>
+				<a href="#top">Nach oben</a>
 			</footer>
 		</div>
 	</body>
