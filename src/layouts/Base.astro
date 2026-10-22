@@ -1,0 +1,53 @@
+---
+import { Font } from 'astro:assets';
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description } = Astro.props;
+
+// Must match the <Section id> values in pages/index.astro.
+const nav = [
+	['ueber-mich', 'Über mich'],
+	['werdegang', 'Werdegang'],
+	['programmieren', 'Programmieren'],
+	['projekte', 'Projekte'],
+	['politik', 'Politik'],
+	['kontakt', 'Kontakt'],
+];
+---
+
+<html lang="de-CH">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		{description && <meta name="description" content={description} />}
+		<Font cssVariable="--font-newsreader" preload />
+		<Font cssVariable="--font-plex-sans" />
+		<Font cssVariable="--font-plex-mono" />
+	</head>
+	<body>
+		<div class="mx-auto max-w-[1136px] px-[clamp(20px,5vw,48px)]">
+			<header class="flex flex-wrap items-center justify-between gap-x-8 gap-y-2 border-b border-rule pt-6 pb-4">
+				<a class="plain font-serif text-[22px] leading-7" href="/#top">Fadri Ziegler</a>
+				<nav aria-label="Hauptnavigation" class="flex flex-wrap gap-x-6 text-sm leading-[22px]">
+					{nav.map(([id, label]) => <a class="plain inline-block py-[11px]" href={`/#${id}`}>{label}</a>)}
+				</nav>
+			</header>
+			<main>
+				<slot />
+			</main>
+			<footer class="flex flex-wrap justify-between gap-x-8 gap-y-2 border-t border-rule pt-6 pb-12 text-sm leading-[22px] text-ink-muted">
+				<span>Fadri Ziegler · Romanshorn · {new Date().getFullYear()}</span>
+				<a href="#top">Nach oben</a>
+			</footer>
+		</div>
+	</body>
+</html>

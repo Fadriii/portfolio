@@ -1,18 +1,37 @@
 ---
-import '../styles/global.css';
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Portfolio</title>
-	</head>
-	<body class="mx-auto max-w-2xl p-8">
-		<h1 class="text-4xl font-bold text-sky-600">Portfolio</h1>
-		<p class="mt-4 text-gray-700">About me, my hobbies and career.</p>
-	</body>
-</html>
+<Base title="Fadri Ziegler – Portfolio" description="Fadri Ziegler, 18, aus Romanshorn: Programmieren, Projekte und Politik.">
+	<section class="pt-[clamp(64px,10vw,112px)] pb-[clamp(48px,8vw,72px)]">
+		<h1 class="max-w-[20ch] font-serif text-[clamp(36px,6vw,56px)] leading-[1.07] font-normal tracking-[-0.015em]">
+			Ich programmiere und bin politisch aktiv.
+		</h1>
+		<p class="mt-8 max-w-[62ch] text-lg leading-7">
+			Ich bin Fadri Ziegler, 18 Jahre alt, aus Romanshorn. Seit über fünf Jahren schreibe ich Code, und ich engagiere mich in der Politik. Seit August 2026 mache ich mein Praktisches Jahr.
+		</p>
+		<div class="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
+			<a href="/#kontakt">Kontakt aufnehmen</a>
+		</div>
+	</section>
+
+	<Section id="ueber-mich" label="Über mich">
+		<p>Ich wohne in Romanshorn am Bodensee und bin 18 Jahre alt.</p>
+	</Section>
+	<Section id="werdegang" label="Werdegang">
+		<p>Seit August 2026 mache ich mein Praktisches Jahr. Davor habe ich drei Jahre die Informatikmittelschule in Frauenfeld besucht.</p>
+	</Section>
+	<Section id="programmieren" label="Programmieren">
+		<p>Ich programmiere seit über fünf Jahren.</p>
+	</Section>
+	<Section id="projekte" label="Projekte">
+		<p>Jedes Projekt hat eine eigene Seite mit Titelbild, Beschreibung und Link zur Website.</p>
+	</Section>
+	<Section id="politik" label="Politik">
+		<p>Ich bin politisch aktiv.</p>
+	</Section>
+	<Section id="kontakt" label="Kontakt">
+		<p>Schreib mir, wenn du eine Frage, eine Idee oder ein Projekt hast.</p>
+	</Section>
+</Base>
