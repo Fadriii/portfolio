@@ -21,7 +21,7 @@
 	--animate-drift: drift 12s ease-in-out infinite alternate;
 	@keyframes drift {
 		to {
-			transform: translateX(24px);
+			transform: translateX(-24px);
 		}
 	}
 }
