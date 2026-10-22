@@ -61,6 +61,14 @@
 }
 
 @layer components {
+	a.plain {
+		color: var(--color-ink);
+		text-decoration: none;
+	}
+	a.plain:hover {
+		text-decoration: underline;
+		text-decoration-color: var(--color-accent);
+	}
 	a.btn {
 		display: inline-block;
 		background: var(--color-accent-fill);
