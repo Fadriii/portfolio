@@ -17,6 +17,13 @@
 	--font-serif: var(--font-newsreader);
 	--font-sans: var(--font-plex-sans);
 	--font-mono: var(--font-plex-mono);
+
+	--animate-drift: drift 12s ease-in-out infinite alternate;
+	@keyframes drift {
+		to {
+			transform: translateX(24px);
+		}
+	}
 }
 
 @media (prefers-color-scheme: dark) {

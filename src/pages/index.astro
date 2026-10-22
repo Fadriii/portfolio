@@ -1,15 +1,19 @@
 ---
 import Base from '../layouts/Base.astro';
 import Section from '../components/Section.astro';
+
+const now = new Date();
+// shortcut: age is computed at build time on a static site, so it only updates on a rebuild
+const age = now.getFullYear() - 2008 - (now < new Date(now.getFullYear(), 1, 18) ? 1 : 0);
 ---
 
-<Base title="Fadri Ziegler – Portfolio" description="Fadri Ziegler, 18, aus Romanshorn: Programmieren, Projekte und Politik.">
+<Base title="Fadri Ziegler – Portfolio" description={`Fadri Ziegler, ${age}, aus Romanshorn: Programmieren, Projekte und Politik.`}>
 	<section class="pt-[clamp(64px,10vw,112px)] pb-[clamp(48px,8vw,72px)]">
 		<h1 class="max-w-[20ch] font-serif text-[clamp(36px,6vw,56px)] leading-[1.07] font-normal tracking-[-0.015em]">
 			Ich programmiere und bin politisch aktiv.
 		</h1>
 		<p class="mt-8 max-w-[62ch] text-lg leading-7">
-			Ich bin Fadri Ziegler, 18 Jahre alt, aus Romanshorn. Seit über fünf Jahren schreibe ich Code, und ich engagiere mich in der Politik. Seit August 2026 mache ich mein Praktisches Jahr.
+			Ich bin Fadri Ziegler, {age} Jahre alt, aus Romanshorn. Seit über fünf Jahren schreibe ich Code, und ich engagiere mich in der Politik. Seit August 2026 mache ich mein Praktisches Jahr.
 		</p>
 		<div class="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
 			<a href="/#kontakt">Kontakt aufnehmen</a>
@@ -17,10 +21,62 @@ import Section from '../components/Section.astro';
 	</section>
 
 	<Section id="ueber-mich" label="Über mich">
-		<p>Ich wohne in Romanshorn am Bodensee und bin 18 Jahre alt.</p>
+		<p>
+			Zum Programmieren bin ich über ein paar einfache Bücher gekommen. Dabei bin ich auf die Informatikmittelschule (IMS) gestossen, und heute bin ich angehender Applikationsentwickler.
+		</p>
+		<p class="mt-4">
+			Geschichte begleitet mich schon mein ganzes Leben, ich bin ein grosser Fan davon. Daraus ist auch mein Interesse an Politik gewachsen, und seit 2026 engagiere ich mich dort aktiver.
+		</p>
+		<dl slot="aside" class="grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 border-t border-rule pt-4 text-sm">
+			<dt class="text-ink-muted">Name</dt>
+			<dd>Fadri Ziegler</dd>
+			<dt class="text-ink-muted">Alter</dt>
+			<dd>{age} Jahre</dd>
+			<dt class="text-ink-muted">Wohnort</dt>
+			<dd>Romanshorn</dd>
+			<dt class="text-ink-muted">Ausbildung</dt>
+			<dd>Applikationsentwickler</dd>
+		</dl>
 	</Section>
 	<Section id="werdegang" label="Werdegang">
-		<p>Seit August 2026 mache ich mein Praktisches Jahr. Davor habe ich drei Jahre die Informatikmittelschule in Frauenfeld besucht.</p>
+		<ol>
+			<li class="relative border-l-2 border-transparent pb-10 pl-8">
+				<!-- the dashed line comes out of the bottom of the front cloud -->
+				<span class="absolute top-[104px] bottom-0 -left-[2px] border-l-2 border-dashed border-rule"></span>
+				<div class="relative -ml-[60px] h-32" aria-hidden="true">
+					{[
+						{ cls: 'top-0 left-24 w-40', mix: '25%', delay: '-6s' },
+						{ cls: 'top-8 left-0 w-36', mix: '40%', delay: '0s' },
+						{ cls: 'top-12 left-36 w-28', mix: '40%', delay: '-9s' },
+					].map(({ cls, mix, delay }) => (
+						<svg viewBox="0 0 64 40" class={`absolute motion-safe:animate-drift ${cls}`} style={`fill:color-mix(in srgb,var(--color-ink-muted) ${mix},var(--color-paper));animation-delay:${delay}`}>
+							<circle cx="20" cy="26" r="12" />
+							<circle cx="34" cy="18" r="14" />
+							<circle cx="48" cy="26" r="11" />
+							<rect x="20" y="24" width="28" height="14" />
+						</svg>
+					))}
+				</div>
+				<p class="font-mono text-xs tracking-[0.06em] text-ink-muted uppercase">Danach</p>
+				<p class="font-serif text-xl text-ink-muted">Noch in den Wolken …</p>
+			</li>
+			<li class="relative border-l-2 border-transparent pb-10 pl-8">
+				<!-- dashed (future) above the dot, solid (past) below it -->
+				<span class="absolute top-0 -left-[2px] h-[7px] border-l-2 border-dashed border-rule"></span>
+				<span class="absolute top-[13px] bottom-0 -left-[2px] border-l-2 border-ink"></span>
+				<span class="absolute top-[7px] -left-[7px] size-3 rounded-full bg-accent motion-safe:animate-ping"></span>
+				<span class="absolute top-[7px] -left-[7px] size-3 rounded-full bg-accent"></span>
+				<p class="font-mono text-xs tracking-[0.06em] text-accent uppercase">Seit Aug 2026</p>
+				<p class="font-serif text-xl">Praktikum bei der novalink GmbH</p>
+				<p class="text-ink-muted">Mein Praktisches Jahr als angehender Applikationsentwickler.</p>
+			</li>
+			<li class="relative border-l-2 border-transparent pl-8">
+				<span class="absolute top-[7px] -left-[7px] size-3 rounded-full bg-ink"></span>
+				<p class="font-mono text-xs tracking-[0.06em] text-ink-muted uppercase">Aug 2023 – Jul 2026</p>
+				<p class="font-serif text-xl">Informatikmittelschule Frauenfeld</p>
+				<p class="text-ink-muted">Start</p>
+			</li>
+		</ol>
 	</Section>
 	<Section id="programmieren" label="Programmieren">
 		<p>Ich programmiere seit über fünf Jahren.</p>
