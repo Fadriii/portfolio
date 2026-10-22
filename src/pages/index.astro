@@ -2,17 +2,32 @@
 import '../styles/global.css';
 ---
 
-<html lang="en">
+<html lang="de-CH">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Portfolio</title>
+		<title>Fadri Ziegler – Portfolio</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400&family=Newsreader:opsz,wght@6..72,400&display=swap" rel="stylesheet" />
 	</head>
-	<body class="mx-auto max-w-2xl p-8">
-		<h1 class="text-4xl font-bold text-sky-600">Portfolio</h1>
-		<p class="mt-4 text-gray-700">About me, my hobbies and career.</p>
+	<body>
+		<main class="mx-auto max-w-[1136px] px-[clamp(20px,5vw,48px)]">
+			<section class="pt-[clamp(64px,10vw,112px)] pb-[clamp(48px,8vw,72px)]">
+				<h1 class="max-w-[20ch] font-serif text-[clamp(36px,6vw,56px)] leading-[1.07] font-normal tracking-[-0.015em]">
+					Ich programmiere und bin politisch aktiv.
+				</h1>
+				<p class="mt-8 max-w-[62ch] text-lg leading-7">
+					Ich bin Fadri Ziegler, 18 Jahre alt, aus Romanshorn. Seit über fünf Jahren schreibe ich Code, und ich engagiere mich in der Politik. Seit August 2026 mache ich mein Praktisches Jahr.
+				</p>
+				<div class="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
+					<a class="btn" href="#projekte">Projekte ansehen</a>
+					<a href="#kontakt">Kontakt aufnehmen</a>
+				</div>
+			</section>
+		</main>
 	</body>
 </html>

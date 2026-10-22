@@ -1,1 +1,77 @@
 @import "tailwindcss";
+
+/* Tokens from the "Portfolio" design system (tokens.json) */
+@theme {
+	--color-paper: #f5f2ec;
+	--color-paper-sunken: #ebe6dd;
+	--color-ink: #1c1917;
+	--color-ink-muted: #5d554f;
+	--color-rule: #d3ccc0;
+	--color-accent: #7a1c1f;
+	--color-accent-fill: #7a1c1f;
+	--color-accent-fill-hover: #5c1417;
+	--color-on-accent: #f5f2ec;
+	--color-accent-tint: #ecdcd8;
+
+	--font-serif: "Newsreader", Georgia, "Times New Roman", serif;
+	--font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+	--font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-paper: #171413;
+		--color-paper-sunken: #201c1a;
+		--color-ink: #ece6dd;
+		--color-ink-muted: #a69d94;
+		--color-rule: #35302c;
+		--color-accent: #cb7c7e;
+		--color-accent-fill: #b04349;
+		--color-accent-fill-hover: #9a363b;
+		--color-on-accent: #fbf6f0;
+		--color-accent-tint: #3a2426;
+	}
+}
+
+@layer base {
+	body {
+		background: var(--color-paper);
+		color: var(--color-ink);
+		font-family: var(--font-sans);
+		font-size: 16px;
+		line-height: 26px;
+	}
+	::selection {
+		background: var(--color-accent-tint);
+		color: var(--color-ink);
+	}
+	a {
+		color: var(--color-accent);
+		text-decoration: underline;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 3px;
+	}
+	a:hover {
+		color: var(--color-ink);
+	}
+	a:focus-visible {
+		outline: 2px solid var(--color-accent);
+		outline-offset: 3px;
+	}
+}
+
+@layer components {
+	a.btn {
+		display: inline-block;
+		background: var(--color-accent-fill);
+		color: var(--color-on-accent);
+		text-decoration: none;
+		padding: 12px 24px;
+		border-radius: 2px;
+		line-height: 22px;
+	}
+	a.btn:hover {
+		background: var(--color-accent-fill-hover);
+		color: var(--color-on-accent);
+	}
+}
