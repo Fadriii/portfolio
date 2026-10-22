@@ -9,14 +9,14 @@ interface Props {
 
 const { title, description } = Astro.props;
 
-// Must match the <Section id> values in pages/index.astro.
+// Anchors must match the <Section id> values in pages/index.astro.
 const nav = [
-	['ueber-mich', 'Über mich'],
-	['werdegang', 'Werdegang'],
-	['programmieren', 'Programmieren'],
-	['projekte', 'Projekte'],
-	['politik', 'Politik'],
-	['kontakt', 'Kontakt'],
+	['/#ueber-mich', 'Über mich'],
+	['/#werdegang', 'Werdegang'],
+	['/#programmieren', 'Programmieren'],
+	['/projekte', 'Projekte'],
+	['/politik', 'Politik'],
+	['/#kontakt', 'Kontakt'],
 ];
 ---
 
@@ -38,7 +38,7 @@ const nav = [
 			<header class="flex flex-wrap items-center justify-between gap-x-8 gap-y-2 border-b border-rule pt-6 pb-4">
 				<a class="plain font-serif text-[22px] leading-7" href="/#top">Fadri Ziegler</a>
 				<nav aria-label="Hauptnavigation" class="flex flex-wrap gap-x-6 text-sm leading-[22px]">
-					{nav.map(([id, label]) => <a class="plain inline-block py-[11px]" href={`/#${id}`}>{label}</a>)}
+					{nav.map(([href, label]) => <a class="plain inline-block py-[11px]" href={href}>{label}</a>)}
 				</nav>
 			</header>
 			<main>
